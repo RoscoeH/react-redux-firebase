@@ -157,9 +157,14 @@ const getLoginMethodAndParams = ({email, password, provider, type, token, scopes
       params: [ token ]
     }
   }
+  if (email) {
+    return {
+      method: 'signInWithEmailAndPassword',
+      params: [ email, password ]
+    }
+  }
   return {
-    method: 'signInWithEmailAndPassword',
-    params: [ email, password ]
+    method: 'signInAnonymously'
   }
 }
 
